@@ -24,7 +24,7 @@ class MyActorReceiver[T] extends ActorReceiver {
   }
     // we choose randomly from array. store is where we emit to spark stream
   def receive: PartialFunction[Any, Unit] = {
-    case Fire => store(words(Random.nextInt(words.size)))
+    case Fire => store(words(Random.nextInt(words.length)))
   }
 
   override def postStop(): Unit = {
@@ -43,7 +43,7 @@ object StreamAkka extends App{
 
   val system = ActorSystem("mySystem")
 
-    // note I specific existing actor system to use, else will create its own and hence eventbus will be split
+    // note I specify existing actor system to use, else will create its own and hence eventbus will be split
   val lines = AkkaUtils.createStream[String]( ssc,Props(classOf[MyActorReceiver[String]]),"MyReceiver", actorSystemCreator = {
     ()=>system
   })
