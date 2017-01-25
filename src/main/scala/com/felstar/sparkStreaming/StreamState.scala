@@ -2,7 +2,7 @@
   * Example usage of stream state
   */
 
-package com.felstar.scalaStreaming
+package com.felstar.sparkStreaming
 
 import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}

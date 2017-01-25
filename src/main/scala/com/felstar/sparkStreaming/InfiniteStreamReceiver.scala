@@ -2,7 +2,7 @@
   * Allows you to receive scala.collection.immutable.Stream
   */
 
-package com.felstar.scalaStreaming
+package com.felstar.sparkStreaming
 
 import org.apache.spark.storage.StorageLevel
 import org.apache.spark.streaming.receiver.Receiver
